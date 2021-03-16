@@ -9,6 +9,7 @@ export default () => {
 
   const [movieList, setMovielist] = useState([]);
   const [featuredData, setFeaturedData] = useState(null);
+  const [blackHeader, setBlackHeader] = useState(false);
 
   useEffect(() => {
     const loadAll = async () => {
@@ -29,10 +30,27 @@ export default () => {
     loadAll();
   }, []);
 
-  return(
+  useEffect(() => {
+
+    const scrollListener = () => {
+      if(window.scrollY > 10) {
+        setBlackHeader(true);
+      } else {
+        setBlackHeader(false);
+      }
+    }
+
+    window.addEventListener('scroll', scrollListener);
+
+    return () => {
+      window.removeEventListener('scroll', scrollListener);
+    }
+  }, []); 
+
+  return (
     <div className="page">
 
-      <Header />
+      <Header black={blackHeader}/>
 
       {featuredData && 
         <FeaturedMovie item={featuredData} />
@@ -46,6 +64,11 @@ export default () => {
         ))}
       </section>
 
+      <footer>
+        Feito com <span role="img" aria-label="coração">🧡</span> React JS<br />
+        Direitos de imagem para Netflix<br />
+        Dados pegos do site Themoviedb.org
+      </footer>
     </div>
   )
 }

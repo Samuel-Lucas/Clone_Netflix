@@ -10,6 +10,11 @@ header {
     align-items: center;
     padding: 0px 30px;
     background: transparent;
+    transition: all ease 0.4s;
+}
+
+header.black {
+    background: #000;
 }
 
 .header--logo {
@@ -28,5 +33,3 @@ header {
     height: 100%;
     border-radius: 3px;
 }
-
-/* Continua 2:19:00 */

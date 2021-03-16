@@ -31,3 +31,19 @@
     width: 100%;
     transform: scale(1);
 }
+
+.movieRow--left, 
+.movieRow--rigth {
+    position: absolute;
+    width: 40px;
+    height: 225px;
+    background: red;
+}
+
+.movieRow--left {
+    left: 0;
+}
+
+.movieRow--right {
+    right: 0;
+}
