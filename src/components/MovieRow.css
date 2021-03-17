@@ -6,13 +6,13 @@
     margin: 0px 0px 0px 30px;
 }
 
+.movieRow--list {
+    transition: all ease 0.5s;
+}
+
 .movieRow--listarea {
     overflow-x: hidden;  /* Conteúdo cortado dps de passar o limite do elemento */
     padding-left: 30px; 
-}
-
-.movieRow--list {
-    width: 99999px;
 }
 
 .movieRow--item {
@@ -33,11 +33,19 @@
 }
 
 .movieRow--left, 
-.movieRow--rigth {
+.movieRow--right {
     position: absolute;
     width: 40px;
     height: 225px;
-    background: red;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    transition: all ease 0.5s;
 }
 
 .movieRow--left {
@@ -46,4 +54,16 @@
 
 .movieRow--right {
     right: 0;
+}
+
+.movieRow:hover .movieRow--left,
+.movieRow:hover .movieRow--right {
+    opacity: 1;
+}
+
+@media (max-width: 760px) {
+    .movieRow--left, 
+    .movieRow--right {
+        opacity: 1;
+    }
 }
